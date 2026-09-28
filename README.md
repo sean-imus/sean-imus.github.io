@@ -1,43 +1,38 @@
-# Astro Starter Kit: Minimal
+# seanix.de
+
+My little corner of the internet. Built with [Astro](https://astro.build), deployed to GitHub Pages, served at [seanix.de](https://seanix.de).
+
+## ✏️ How to edit the site (the only file u need)
+
+**All text lives in one file: [`src/i18n/ui.ts`](src/i18n/ui.ts)**
+
+Open it, replace every `ur words here` with your actual words (both the `en:` and `de:` sections), save, then:
 
 ```sh
-npm create astro@latest -- --template minimal
+git add -A && git commit -m "fill in my words" && git push
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+~1 minute later the site is updated. That's the whole workflow. :3
 
-## 🚀 Project Structure
+## 👀 Previewing locally
 
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+```sh
+npm install        # first time only
+npm run dev        # then open http://localhost:4321/en/
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## 🗺️ Where things are
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+| What | Where |
+|---|---|
+| All texts (EN + DE) | `src/i18n/ui.ts` |
+| Page structure | `src/components/PortfolioPage.astro` |
+| Colors & fonts | `src/styles/global.css` (see the `:root` block at the top) |
+| Menu / header | `src/components/Header.astro` |
 
-Any static assets, like images, can be placed in the `public/` directory.
+## 🌐 Routing
 
-## 🧞 Commands
+- English: `/en/` (root `/` redirects here)
+- German: `/de/`
 
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Both work after deployment at `https://seanix.de/en/` and `https://seanix.de/de/`.
