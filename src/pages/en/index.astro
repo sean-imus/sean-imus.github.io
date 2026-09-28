@@ -1,0 +1,10 @@
+---
+import PortfolioPage from '../../components/PortfolioPage.astro';
+import { translations } from '../../i18n/ui';
+import type { Lang } from '../../i18n/ui';
+
+const lang: Lang = 'en';
+const t = translations[lang];
+---
+
+<PortfolioPage lang={lang} t={t} />

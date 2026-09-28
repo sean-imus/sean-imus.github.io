@@ -1,0 +1,60 @@
+---
+import Base from '../layouts/Base.astro';
+import type { Lang } from '../i18n/ui';
+
+export interface Props {
+  lang: Lang;
+  t: any;
+}
+
+const { lang, t } = Astro.props;
+const home = lang === 'de' ? '/de/' : '/';
+const otherLang: Lang = lang === 'en' ? 'de' : 'en';
+const otherHome = otherLang === 'de' ? '/de/' : '/';
+---
+
+<Base lang={lang} title={t.metaTitle} description={t.metaDescription}>
+  <section class="hero wrap" id="top">
+    <p class="kicker">{t.kicker}</p>
+    <h1 class="hero-name">{t.heroName}</h1>
+    <p class="hero-tagline">
+      {t.heroTaglinePart1}<span class="accent">{t.heroTaglineAccent}</span>{t.heroTaglinePart2}
+    </p>
+    <p class="hero-intro">{t.heroIntro}</p>
+  </section>
+
+  <section class="section wrap" id="about">
+    <h2 class="section-label">{t.sectionAboutLabel}</h2>
+    <div class="about">
+      <p>{t.aboutBody1}</p>
+      <p>{t.aboutBody2}</p>
+    </div>
+  </section>
+
+  <section class="section wrap" id="links">
+    <h2 class="section-label">{t.sectionLinksLabel}</h2>
+    <ul class="link-list">
+      {t.links.map((link) => (
+        <li>
+          <a href={link.href}>
+            <span>{link.label}</span>
+            <span class="arrow" aria-hidden="true">→</span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <section class="section wrap" id="projects">
+    <h2 class="section-label">{t.sectionProjectsLabel}</h2>
+    <p class="projects-note">{t.projectsNote}</p>
+    <ul class="project-list">
+      {t.projects.map((project) => (
+        <li class="project-card">
+          <a class="project-title" href={project.href}>{project.title}</a>
+          <p class="project-desc">{project.description}</p>
+        </li>
+      ))}
+    </ul>
+  </section>
+</Base>

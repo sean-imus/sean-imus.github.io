@@ -1,0 +1,50 @@
+---
+import type { Lang } from '../i18n/ui';
+
+export interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const home = lang === 'de' ? '/de/' : '/';
+const nav = [
+  { href: `${home}#about`, label: 'about' },
+  { href: `${home}#links`, label: 'links' },
+  { href: `${home}#projects`, label: 'projects' },
+];
+const otherLang: Lang = lang === 'en' ? 'de' : 'en';
+const otherHome = otherLang === 'de' ? '/de/' : '/';
+---
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href={home} aria-label={lang === 'de' ? 'Startseite' : 'Home'}>
+      <span class="brand-mark" aria-hidden="true">◢◤</span>
+      <span class="brand-text">seanix<em>.de</em></span>
+    </a>
+
+    <nav aria-label={lang === 'de' ? 'Hauptnavigation' : 'Main navigation'}>
+      {nav.map((item) => (
+        <a href={item.href}>{item.label}</a>
+      ))}
+    </nav>
+
+    <div class="lang-switch" role="group" aria-label={lang === 'de' ? 'Sprache wechseln' : 'Language switch'}>
+      <a
+        href="/"
+        class:active={lang === 'en'}
+        hreflang="en"
+        lang="en"
+        aria-current={lang === 'en' ? 'true' : undefined}
+      >EN</a>
+      <span class="lang-sep" aria-hidden="true">/</span>
+      <a
+        href="/de/"
+        class:active={lang === 'de'}
+        hreflang="de"
+        lang="de"
+        aria-current={lang === 'de' ? 'true' : undefined}
+      >DE</a>
+    </div>
+  </div>
+</header>
