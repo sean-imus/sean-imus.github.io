@@ -14,72 +14,70 @@ export type Lang = keyof typeof languages;
 
 export const translations = {
   en: {
-    metaTitle: 'ur words here — name or cool title :3',
-    metaDescription: 'ur words here — one sentence about you for search results',
+    metaTitle: 'Sean Tietz',
+    metaDescription: 'Personal Portfolio of Sean Tietz, Nature Lover — Aspiring Linux Enthusiast — Tech Hobbyist',
 
     siteLabel: 'seanix.de',
-    kicker: 'ur words here — e.g. PORTFOLIO · EST. 2026',
-    heroName: 'ur words here — ur name',
-    heroTaglinePart1: 'ur words here — ',
-    heroTaglineAccent: 'ur words here — italic accent word',
-    heroTaglinePart2: ' ur words here — rest of the sentence',
-    heroIntro: 'ur words here — 2–3 short friendly sentences about who u are. maybe mention what u do, what u enjoy, anythign that makes u *u*. :3',
+    kicker: 'README · EST. 2026',
+    heroName: 'Sean Tietz',
+    heroTaglinePart1: 'Nature Lover — ',
+    heroTaglineAccent: 'Aspiring Linux Enthusiast ',
+    heroTaglinePart2: '— Tech Hobbyist',
+    heroIntro: 'Hi, my name is Sean. As you have read above, I love being outside, biking around, touching grass (I know, crazy) and doing anything inside or around a computer.',
 
     sectionAboutLabel: '(01) ABOUT',
-    aboutBody1: 'ur words here — a little more depth. what u do day to day, what ur curious about.',
-    aboutBody2: 'ur words here — maybe how u got into tech, or whatever story feels right.',
+    aboutBody1: 'I am 20 years old, born and currently living in Germany, doing an apprenticeship towards becoming an IT Specialist in System Integration at <a href="https://www.entex.de">ENTEX in Bochum</a>.',
+    aboutBody2: 'It all started at just 6 years old, asking my dad to dismantle his phone just because the stuff inside looked so interesting. Even if I would like to tell more, I\'m going to keep it short: it all escalated from there.',
 
     sectionLinksLabel: '(02) LINKS',
     links: [
+      { label: 'Discord', href: 'https://discord.com/users/657723471580626985' },
       { label: 'GitHub', href: 'https://github.com/sean-imus' },
-      { label: 'Email', href: 'mailto:sean.tietz2@gmail.com' },
-      { label: 'ur words here — e.g. Mastodon', href: '#' },
+      { label: 'E-Mail', href: 'mailto:sean.tietz2@gmail.com' },
     ],
 
     sectionProjectsLabel: '(03) PROJECTS & SHENANIGANS',
-    projectsNote: 'ur words here — one line teasing the section, e.g. "things i probably broke while making:"',
+    projectsNote: 'Things that probably took up way too much of my free time:',
     projects: [
-      { title: 'ur title here', description: 'ur words here — one line about it', href: '#' },
-      { title: 'ur title here', description: 'ur words here — one line about it', href: '#' },
-      { title: 'ur title here', description: 'ur words here — one line about it', href: '#' },
+      { title: 'NixOS Config', description: 'Personal NixOS config for my notebook, days upon days spent on this', href: 'https://github.com/sean-imus/nixos-config' },
+      { title: 'Historic Weather Visualizer', description: 'Small historic weather visualizer made at school, fun to use once but could be improved', href: 'https://github.com/sean-imus/wetterprojekt' },
     ],
 
-    footerLine: '© 2026 · handmade with html & vibes',
+    footerLine: '© 2026 · handmade with hands',
     footerEgg: ':3',
   },
 
-  de: {
-    metaTitle: 'ur words here — Name oder cooler Titel :3',
-    metaDescription: 'ur words here — ein Satz über dich für Suchergebnisse',
+de: {
+  metaTitle: 'Sean Tietz',
+  metaDescription: 'Persönliches Portfolio von Sean Tietz, Naturfreund — angehender Linux-Enthusiast — Technik-Hobbyist',
 
-    siteLabel: 'seanix.de',
-    kicker: 'ur words here — z.B. PORTFOLIO · EST. 2026',
-    heroName: 'ur words here — dein Name',
-    heroTaglinePart1: 'ur words here — ',
-    heroTaglineAccent: 'ur words here — kursives Akzentwort',
-    heroTaglinePart2: ' ur words here — Rest des Satzes',
-    heroIntro: 'ur words here — 2–3 kurze freundliche Sätze über dich. was du machst, was dich glücklich macht, egal was dich *dich* macht. :3',
+  siteLabel: 'seanix.de',
+  kicker: 'README · SEIT 2026',
+  heroName: 'Sean Tietz',
+  heroTaglinePart1: 'Naturfreund — ',
+  heroTaglineAccent: 'Angehender Linux-Enthusiast ',
+  heroTaglinePart2: '— Technik-Hobbyist',
+  heroIntro: 'Hi, ich bin Sean. Wie du oben vielleicht schon gelesen hast, bin ich gerne draußen unterwegs, fahre mit dem Fahrrad durch die Gegend, fasse tatsächlich Gras an (ich weiß, verrückt) und beschäftige mich eigentlich mit allem, was irgendwie mit Computern zu tun hat.',
 
-    sectionAboutLabel: '(01) ÜBER MICH',
-    aboutBody1: 'ur words here — etwas mehr Tiefe. was du täglich machst, worauf du neugierig bist.',
-    aboutBody2: 'ur words here — vielleicht wie du zur Technik kommst, oder eine Geschichte die passt.',
+  sectionAboutLabel: '(01) ÜBER MICH',
+  aboutBody1: 'Ich bin 20 Jahre alt, in Deutschland geboren und lebe auch aktuell hier. Zurzeit mache ich eine Ausbildung zum Fachinformatiker für Systemintegration bei <a href="https://www.entex.de">ENTEX in Bochum</a>.',
+  aboutBody2: 'Angefangen hat das Ganze, als ich mit erst 6 Jahren meinen Papa gefragt habe, sein Handy auseinanderzunehmen, einfach weil es darin so interessant aussah. Auch wenn ich gerne mehr erzählen würde, halte ich mich kurz: von da an eskalierte es immer weiter.',
 
-    sectionLinksLabel: '(02) LINKS',
-    links: [
-      { label: 'GitHub', href: 'https://github.com/sean-imus' },
-      { label: 'E-Mail', href: 'mailto:sean.tietz2@gmail.com' },
-      { label: 'ur words here — z.B. Mastodon', href: '#' },
-    ],
+  sectionLinksLabel: '(02) LINKS',
+  links: [
+    { label: 'Discord', href: 'https://discord.com/users/657723471580626985' },
+    { label: 'GitHub', href: 'https://github.com/sean-imus' },
+    { label: 'E-Mail', href: 'mailto:sean.tietz2@gmail.com' },
+  ],
 
-    sectionProjectsLabel: '(03) PROJEKTE & SHENANIGANS',
-    projectsNote: 'ur words here — eine Zeile als teaser, z.B. "dinge, die ich dabei aka kaputt gemacht habe:"',
-    projects: [
-      { title: 'titel hier', description: 'ur words here — eine Zeile dazu', href: '#' },
-      { title: 'titel hier', description: 'ur words here — eine Zeile dazu', href: '#' },
-      { title: 'titel hier', description: 'ur words here — eine Zeile dazu', href: '#' },
-    ],
+  sectionProjectsLabel: '(03) PROJEKTE & SPIELEREIEN',
+  projectsNote: 'Dinge, die wahrscheinlich viel zu viel meiner Freizeit gefressen haben:',
+  projects: [
+    { title: 'NixOS Config', description: 'Meine persönliche NixOS-Konfiguration fürs Notebook, Tage über Tage habe ich hiermit verbracht', href: 'https://github.com/sean-imus/nixos-config' },
+    { title: 'Historischer Wetter-Visualizer', description: 'Kleiner Wetter-Visualizer aus der Schulzeit, einmal ganz lustig, aber definitiv noch ausbaufähig', href: 'https://github.com/sean-imus/wetterprojekt' },
+  ],
 
-    footerLine: '© 2026 · handgemacht mit html & vibes',
-    footerEgg: ':3',
-  },
+  footerLine: '© 2026 · handgemacht mit Händen',
+  footerEgg: ':3',
+},
 } as const;

@@ -20,14 +20,14 @@ const otherHome = otherLang === 'de' ? '/de/' : '/';
     <p class="hero-tagline">
       {t.heroTaglinePart1}<span class="accent">{t.heroTaglineAccent}</span>{t.heroTaglinePart2}
     </p>
-    <p class="hero-intro">{t.heroIntro}</p>
+    <p class="hero-intro" set:html={t.heroIntro} />
   </section>
 
   <section class="section wrap" id="about">
     <h2 class="section-label">{t.sectionAboutLabel}</h2>
     <div class="about">
-      <p>{t.aboutBody1}</p>
-      <p>{t.aboutBody2}</p>
+      <p set:html={t.aboutBody1} />
+      <p set:html={t.aboutBody2} />
     </div>
   </section>
 
@@ -47,12 +47,12 @@ const otherHome = otherLang === 'de' ? '/de/' : '/';
 
   <section class="section wrap" id="projects">
     <h2 class="section-label">{t.sectionProjectsLabel}</h2>
-    <p class="projects-note">{t.projectsNote}</p>
+    <p class="projects-note" set:html={t.projectsNote} />
     <ul class="project-list">
       {t.projects.map((project) => (
         <li class="project-card">
           <a class="project-title" href={project.href}>{project.title}</a>
-          <p class="project-desc">{project.description}</p>
+          <p class="project-desc" set:html={project.description} />
         </li>
       ))}
     </ul>

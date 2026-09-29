@@ -3,10 +3,15 @@ import type { Lang } from '../i18n/ui';
 
 export interface Props {
   lang: Lang;
+  t: {
+    siteLabel: string;
+  };
 }
 
-const { lang } = Astro.props;
+const { lang, t } = Astro.props;
 const home = lang === 'de' ? '/de/' : '/';
+const [brandName = '', ...tld] = t.siteLabel.split('.');
+const brandTld = tld.join('.');
 const nav = [
   { href: `${home}#about`, label: 'about' },
   { href: `${home}#links`, label: 'links' },
@@ -19,8 +24,7 @@ const otherHome = otherLang === 'de' ? '/de/' : '/';
 <header class="site-header">
   <div class="wrap header-inner">
     <a class="brand" href={home} aria-label={lang === 'de' ? 'Startseite' : 'Home'}>
-      <span class="brand-mark" aria-hidden="true">◢◤</span>
-      <span class="brand-text">seanix<em>.de</em></span>
+      <span class="brand-text">{brandName}<em>.{brandTld}</em></span>
     </a>
 
     <nav aria-label={lang === 'de' ? 'Hauptnavigation' : 'Main navigation'}>
