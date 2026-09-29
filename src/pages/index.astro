@@ -1,3 +1,19 @@
 ---
-return Astro.redirect('/en/');
 ---
+
+<meta name="robots" content="noindex" />
+<link rel="canonical" href="/en/" />
+<title>Sean Tietz</title>
+<style is:global>html { background: #f6f1e7; }</style>
+<noscript><meta http-equiv="refresh" content="0;url=/en/" /></noscript>
+<script>
+  const stored = localStorage.getItem('preferred-lang');
+  const target = stored
+    ? stored === 'de'
+      ? '/de/'
+      : '/en/'
+    : navigator.languages.some((l) => l.toLowerCase().startsWith('de'))
+      ? '/de/'
+      : '/en/';
+  location.replace(target);
+</script>

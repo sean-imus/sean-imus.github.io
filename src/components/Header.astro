@@ -40,7 +40,9 @@ const otherHome = otherLang === 'de' ? '/de/' : '/';
         hreflang="en"
         lang="en"
         aria-current={lang === 'en' ? 'true' : undefined}
-      >EN</a>
+        onclick="localStorage.setItem('preferred-lang','en')"
+        >EN</a
+      >
       <span class="lang-sep" aria-hidden="true">/</span>
       <a
         href="/de/"
@@ -48,7 +50,9 @@ const otherHome = otherLang === 'de' ? '/de/' : '/';
         hreflang="de"
         lang="de"
         aria-current={lang === 'de' ? 'true' : undefined}
-      >DE</a>
+        onclick="localStorage.setItem('preferred-lang','de')"
+        >DE</a
+      >
     </div>
   </div>
 </header>

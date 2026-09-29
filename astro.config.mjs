@@ -9,7 +9,10 @@ export default defineConfig({
     locales: ['en', 'de'],
     routing: {
       prefixDefaultLocale: true,
-      redirectToDefaultLocale: true,
+      // root `/` redirect handled manually in src/pages/index.astro
+      // (browser-language detection + stored preference; Astro's built-in
+      // redirectToDefaultLocale always hardcodes a 2s meta refresh)
+      redirectToDefaultLocale: false,
     },
   },
 });
