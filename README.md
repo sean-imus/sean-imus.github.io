@@ -6,6 +6,7 @@ My little corner of the internet. Built with [Astro](https://astro.build), hoste
 
 ```sh
 git clone https://github.com/sean-imus/sean-imus.github.io
+cd sean-imus.github.io
 npm install
 npm run dev
 ```
