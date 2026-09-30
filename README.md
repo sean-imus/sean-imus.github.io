@@ -1,6 +1,6 @@
 # seanix.de
 
-My little corner of the internet. Built with [Astro](https://astro.build), hosted by GitHub Pages, domain from [IONOS](https://ionos.com), served at [seanix.de](https://seanix.de).
+My little corner of the internet. Built with [Astro](https://astro.build), hosted by [GitHub Pages](https://docs.github.com/en/pages), domain from [IONOS](https://ionos.com), served at [seanix.de](https://seanix.de).
 
 ## Local Preview
 
