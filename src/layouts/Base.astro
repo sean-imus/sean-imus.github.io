@@ -24,8 +24,8 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? Astro.url.origin)
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalURL} />
-    <link rel="alternate" hreflang="en" href={new URL('/', Astro.site ?? Astro.url.origin).href} />
-    <link rel="alternate" hreflang="de" href={new URL('/de/', Astro.site ?? Astro.url.origin).href} />
+    <link rel="alternate" hreflang="en" href={new URL('/en/', Astro.site ?? Astro.url.origin).href} />
+    <link rel="alternate" hreflang="de" href={Astro.site ?? Astro.url.origin} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />

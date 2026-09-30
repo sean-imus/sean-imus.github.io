@@ -4,11 +4,11 @@ import { defineConfig } from 'astro/config';
 export default defineConfig({
   site: 'https://seanix.de',
   i18n: {
-    defaultLocale: 'en',
+    defaultLocale: 'de',
     locales: ['en', 'de'],
     routing: {
-      prefixDefaultLocale: true,
-      redirectToDefaultLocale: false,
+      // German lives at `/` (no prefix), English at `/en/`
+      prefixDefaultLocale: false,
     },
   },
 });

@@ -9,7 +9,7 @@ export interface Props {
 }
 
 const { lang, t } = Astro.props;
-const home = lang === 'de' ? '/de/' : '/';
+const home = lang === 'de' ? '/' : '/en/';
 const [brandName = '', ...tld] = t.siteLabel.split('.');
 const brandTld = tld.join('.');
 const nav = [
@@ -35,22 +35,20 @@ const otherHome = otherLang === 'de' ? '/de/' : '/';
 
     <div class="lang-switch" role="group" aria-label={lang === 'de' ? 'Sprache wechseln' : 'Language switch'}>
       <a
-        href="/"
-        class:active={lang === 'en'}
+        href="/en/"
+        class={lang === 'en' ? 'active' : undefined}
         hreflang="en"
         lang="en"
         aria-current={lang === 'en' ? 'true' : undefined}
-        onclick="localStorage.setItem('preferred-lang','en')"
         >EN</a
       >
       <span class="lang-sep" aria-hidden="true">/</span>
       <a
-        href="/de/"
-        class:active={lang === 'de'}
+        href="/"
+        class={lang === 'de' ? 'active' : undefined}
         hreflang="de"
         lang="de"
         aria-current={lang === 'de' ? 'true' : undefined}
-        onclick="localStorage.setItem('preferred-lang','de')"
         >DE</a
       >
     </div>

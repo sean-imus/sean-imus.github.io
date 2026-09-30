@@ -8,9 +8,9 @@ export interface Props {
 }
 
 const { lang, t } = Astro.props;
-const home = lang === 'de' ? '/de/' : '/';
+const home = lang === 'de' ? '/' : '/en/';
 const otherLang: Lang = lang === 'en' ? 'de' : 'en';
-const otherHome = otherLang === 'de' ? '/de/' : '/';
+const otherHome = otherLang === 'de' ? '/' : '/en/';
 ---
 
 <Base lang={lang} title={t.metaTitle} description={t.metaDescription}>
