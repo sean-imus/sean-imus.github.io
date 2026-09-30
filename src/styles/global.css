@@ -7,7 +7,9 @@
   --rust: #b04a1f;
   --line: #d8cfbe;
 
-  --serif: 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, 'Times New Roman', serif;
+  --serif:
+    'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia,
+    'Times New Roman', serif;
   --mono: ui-monospace, 'JetBrains Mono', 'SF Mono', Menlo, Consolas, monospace;
 
   --wrap: 64rem;
@@ -52,9 +54,19 @@ body::before {
   pointer-events: none;
   z-index: 0;
   background-image:
-    repeating-radial-gradient(circle at 17% 32%, transparent 0 2px, color-mix(in srgb, var(--ink) 3%, transparent) 2px 3px),
-    repeating-radial-gradient(circle at 83% 71%, transparent 0 3px, color-mix(in srgb, var(--ink) 2%, transparent) 3px 4px);
-  background-size: 23px 23px, 31px 31px;
+    repeating-radial-gradient(
+      circle at 17% 32%,
+      transparent 0 2px,
+      color-mix(in srgb, var(--ink) 3%, transparent) 2px 3px
+    ),
+    repeating-radial-gradient(
+      circle at 83% 71%,
+      transparent 0 3px,
+      color-mix(in srgb, var(--ink) 2%, transparent) 3px 4px
+    );
+  background-size:
+    23px 23px,
+    31px 31px;
   opacity: 0.5;
 }
 
@@ -259,7 +271,9 @@ a {
   gap: 1rem;
   padding: 0.9rem 0.2rem;
   text-decoration: none;
-  transition: background 0.15s ease, padding-left 0.15s ease;
+  transition:
+    background 0.15s ease,
+    padding-left 0.15s ease;
 }
 
 .link-list a:hover {
@@ -271,7 +285,9 @@ a {
   font-family: var(--mono);
   font-size: 0.8rem;
   color: var(--ink-faint);
-  transition: color 0.15s ease, transform 0.15s ease;
+  transition:
+    color 0.15s ease,
+    transform 0.15s ease;
 }
 
 .link-list a:hover .arrow {
@@ -298,7 +314,9 @@ a {
   border: 1px solid var(--line);
   padding: 1.2rem 1.3rem 1.4rem;
   background: var(--paper-raised);
-  transition: border-color 0.15s ease, transform 0.15s ease;
+  transition:
+    border-color 0.15s ease,
+    transform 0.15s ease;
 }
 
 .project-card:hover {

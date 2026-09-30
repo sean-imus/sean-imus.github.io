@@ -1,10 +1,9 @@
 ---
+import { translations, type Lang } from '../i18n/ui';
+
 export interface Props {
-  lang: string;
-  t: {
-    footerLine: string;
-    footerEgg: string;
-  };
+  lang: Lang;
+  t: (typeof translations)[Lang];
 }
 
 const { lang, t } = Astro.props;
@@ -14,7 +13,11 @@ const target = `${home}#top`;
 
 <footer class="site-footer">
   <div class="wrap footer-inner">
-    <a class="footer-line" href={target}>{t.footerLine}</a>
-    <a class="footer-egg" href={target} aria-hidden="true" tabindex="-1">{t.footerEgg}</a>
+    <a class="footer-line" href={target}>
+      {t.footerLine}
+    </a>
+    <a class="footer-egg" href={target} aria-hidden="true" tabindex="-1">
+      {t.footerEgg}
+    </a>
   </div>
 </footer>

@@ -7,7 +7,6 @@ export default defineConfig({
     defaultLocale: 'de',
     locales: ['en', 'de'],
     routing: {
-      // German lives at `/` (no prefix), English at `/en/`
       prefixDefaultLocale: false,
     },
   },

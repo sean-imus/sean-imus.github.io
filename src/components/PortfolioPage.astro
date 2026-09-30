@@ -1,24 +1,24 @@
 ---
 import Base from '../layouts/Base.astro';
-import type { Lang } from '../i18n/ui';
+import { translations, type Lang } from '../i18n/ui';
 
 export interface Props {
   lang: Lang;
-  t: any;
+  t: (typeof translations)[Lang];
 }
 
 const { lang, t } = Astro.props;
 const home = lang === 'de' ? '/' : '/en/';
-const otherLang: Lang = lang === 'en' ? 'de' : 'en';
-const otherHome = otherLang === 'de' ? '/' : '/en/';
 ---
 
-<Base lang={lang} title={t.metaTitle} description={t.metaDescription}>
+<Base lang={lang}>
   <section class="hero wrap" id="top">
     <p class="kicker">{t.kicker}</p>
     <h1 class="hero-name">{t.heroName}</h1>
     <p class="hero-tagline">
-      {t.heroTaglinePart1}<span class="accent">{t.heroTaglineAccent}</span>{t.heroTaglinePart2}
+      {t.heroTaglinePart1}
+      <span class="accent">{t.heroTaglineAccent}</span>
+      {t.heroTaglinePart2}
     </p>
     <p class="hero-intro" set:html={t.heroIntro} />
   </section>
@@ -38,7 +38,9 @@ const otherHome = otherLang === 'de' ? '/' : '/en/';
         <li>
           <a href={link.href}>
             <span>{link.label}</span>
-            <span class="arrow" aria-hidden="true">→</span>
+            <span class="arrow" aria-hidden="true">
+              →
+            </span>
           </a>
         </li>
       ))}
@@ -51,7 +53,9 @@ const otherHome = otherLang === 'de' ? '/' : '/en/';
     <ul class="project-list">
       {t.projects.map((project) => (
         <li class="project-card">
-          <a class="project-title" href={project.href}>{project.title}</a>
+          <a class="project-title" href={project.href}>
+            {project.title}
+          </a>
           <p class="project-desc" set:html={project.description} />
         </li>
       ))}

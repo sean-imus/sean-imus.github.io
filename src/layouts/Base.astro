@@ -5,14 +5,12 @@ import { translations, type Lang } from '../i18n/ui';
 import '../styles/global.css';
 
 export interface Props {
-  lang: string;
-  title: string;
-  description: string;
+  lang: Lang;
 }
 
-const { lang, title, description } = Astro.props;
-const t = translations[lang as Lang];
-const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? Astro.url.origin).href;
+const { lang } = Astro.props;
+const t = translations[lang];
+const canonicalURL = new URL(Astro.url.pathname, Astro.site).href;
 ---
 
 <!doctype html>
@@ -20,19 +18,24 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? Astro.url.origin)
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
-    <meta name="description" content={description} />
+    <title>{t.metaTitle}</title>
+    <meta name="description" content={t.metaDescription} />
     <link rel="canonical" href={canonicalURL} />
-    <link rel="alternate" hreflang="en" href={new URL('/en/', Astro.site ?? Astro.url.origin).href} />
-    <link rel="alternate" hreflang="de" href={Astro.site ?? Astro.url.origin} />
+    <link
+      rel="alternate"
+      hreflang="en"
+      href={new URL('/en/', Astro.site).href}
+    />
+    <link rel="alternate" hreflang="de" href={String(Astro.site)} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
+    <meta property="og:title" content={t.metaTitle} />
+    <meta property="og:description" content={t.metaDescription} />
     <meta property="og:type" content="website" />
   </head>
   <body>
-    <a class="skip-link" href="#main">skip to content</a>
+    <a class="skip-link" href="#main">
+      skip to content
+    </a>
     <Header lang={lang} t={t} />
     <main id="main">
       <slot />

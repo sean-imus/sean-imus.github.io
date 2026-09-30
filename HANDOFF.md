@@ -1,11 +1,11 @@
 # Handoff — seanix.de project state
 
-*Full memory of the build session, written so any machine (and any future me) can pick up exactly where we left off. Last updated: 2026-09-29.*
+_Full memory of the build session, written so any machine (and any future me) can pick up exactly where we left off. Last updated: 2026-09-29._
 
 ## What this project is
 
 - Static portfolio intro site for **seanix.de** (owner: Sean, GitHub: `sean-imus`)
-- Built with **Astro 7**, bespoke hand-made design (editorial-minimal: cream paper, ink text, one rust accent) — deliberately *not* an AI-looking template
+- Built with **Astro 7**, bespoke hand-made design (editorial-minimal: cream paper, ink text, one rust accent) — deliberately _not_ an AI-looking template
 - Two languages: **EN at `/en/`**, **DE at `/de/`**, root `/` redirects to `/en/`
 - Hosted on **GitHub Pages via GitHub Actions**, domain from **IONOS** pointed at GitHub via DNS
 
@@ -17,6 +17,7 @@
 ## Current status (as of this file's date)
 
 ### Done (as of 2026-09-29 evening — everything below this line is live)
+
 - **The writing homework is DONE** — EN and DE are both fully filled in in `src/i18n/ui.ts`. No more `ur words here`
 - **`/` now does instant browser language detection** (German → `/de/`, else `/en/`, explicit EN/DE clicks stored in `localStorage['preferred-lang']` and win on return visits). Built by hand in `src/pages/index.astro` because Astro's own `redirectToDefaultLocale` hardcodes a **2-second** meta refresh and silently overrides a custom root page while enabled — that config flag is now `false`, the manual page wins (see gotcha)
 - White flash on `/` gone: `location.replace()` + `content="0"` noscript fallback + cream `html{background:#f6f1e7}` + `noindex` + canonical `/en/`. Residual ~1s is GitHub Pages origin latency, not logic (parked blurbs below)
@@ -43,14 +44,14 @@ npm run dev                        # preview at http://localhost:4321/en/ (and /
 git add -A && git commit -m "words" && git push   # ~1 min later: live
 ```
 
-| What | File |
-|---|---|
-| ALL text (EN + DE) | `src/i18n/ui.ts` |
-| Colors / fonts | `:root` block in `src/styles/global.css` |
-| Page structure | `src/components/PortfolioPage.astro` |
-| Header / nav / lang toggle | `src/components/Header.astro` |
-| Footer | `src/components/Footer.astro` |
-| Router / i18n config | `astro.config.mjs` |
+| What                       | File                                     |
+| -------------------------- | ---------------------------------------- |
+| ALL text (EN + DE)         | `src/i18n/ui.ts`                         |
+| Colors / fonts             | `:root` block in `src/styles/global.css` |
+| Page structure             | `src/components/PortfolioPage.astro`     |
+| Header / nav / lang toggle | `src/components/Header.astro`            |
+| Footer                     | `src/components/Footer.astro`            |
+| Router / i18n config       | `astro.config.mjs`                       |
 
 ## Gotchas we hit (so future-us doesn't re-hit them)
 
@@ -58,7 +59,7 @@ git add -A && git commit -m "words" && git push   # ~1 min later: live
   `gh auth refresh -h github.com -s workflow -s admin:public_key` (interactive device-code flow, one-time)
 - **Astro 7 i18n config shape changed:** use `routing: { prefixDefaultLocale: true, redirectToDefaultLocale: true }` — the old string modes (`'prefixed-default'`) are gone. `redirectToDefaultLocale: true` also requires a `src/pages/index.astro` to exist (ours redirects to `/en/`)
 - **Background dev server** (per AGENTS.md): `npx astro dev --background`, manage with `npx astro dev stop|status|logs`
-- **Pages custom domain needs BOTH:** the `cname` set in Pages settings/API *and* the `public/CNAME` file in the deployed output
+- **Pages custom domain needs BOTH:** the `cname` set in Pages settings/API _and_ the `public/CNAME` file in the deployed output
 - **Fresh repos default Pages to legacy Jekyll builds** — our deploy workflow never ran until `build_type` was switched to `workflow` via API. Symptom: "pages build and deployment (dynamic)" runs failing with Jekyll errors
 - **Cert issuance can STALL, not just be slow.** Ours sat on `*.github.io` for 24h+ with perfect DNS. Root cause: the Let's Encrypt provisioning job on GitHub's side had stalled. Fix that worked (2026-09-29, one-shot):
   1. Remove domain but NOT the Pages site — `DELETE /repos/.../pages` is refused for user-site repos ("Deactivating GitHub pages for this repository is not allowed"); instead clear the domain: `gh api -X PUT repos/sean-imus/sean-imus.github.io/pages --input - <<< '{"cname": null, "build_type": "workflow"}'`

@@ -1,11 +1,9 @@
 ---
-import type { Lang } from '../i18n/ui';
+import { translations, type Lang } from '../i18n/ui';
 
 export interface Props {
   lang: Lang;
-  t: {
-    siteLabel: string;
-  };
+  t: (typeof translations)[Lang];
 }
 
 const { lang, t } = Astro.props;
@@ -13,18 +11,23 @@ const home = lang === 'de' ? '/' : '/en/';
 const [brandName = '', ...tld] = t.siteLabel.split('.');
 const brandTld = tld.join('.');
 const nav = [
-  { href: `${home}#about`, label: 'about' },
-  { href: `${home}#links`, label: 'links' },
-  { href: `${home}#projects`, label: 'projects' },
+  { href: `${home}#about`, label: t.navAbout },
+  { href: `${home}#links`, label: t.navLinks },
+  { href: `${home}#projects`, label: t.navProjects },
 ];
-const otherLang: Lang = lang === 'en' ? 'de' : 'en';
-const otherHome = otherLang === 'de' ? '/de/' : '/';
 ---
 
 <header class="site-header">
   <div class="wrap header-inner">
-    <a class="brand" href={home} aria-label={lang === 'de' ? 'Startseite' : 'Home'}>
-      <span class="brand-text">{brandName}<em>.{brandTld}</em></span>
+    <a
+      class="brand"
+      href={home}
+      aria-label={lang === 'de' ? 'Startseite' : 'Home'}
+    >
+      <span class="brand-text">
+        {brandName}
+        <em>.{brandTld}</em>
+      </span>
     </a>
 
     <nav aria-label={lang === 'de' ? 'Hauptnavigation' : 'Main navigation'}>
@@ -33,24 +36,32 @@ const otherHome = otherLang === 'de' ? '/de/' : '/';
       ))}
     </nav>
 
-    <div class="lang-switch" role="group" aria-label={lang === 'de' ? 'Sprache wechseln' : 'Language switch'}>
+    <div
+      class="lang-switch"
+      role="group"
+      aria-label={lang === 'de' ? 'Sprache wechseln' : 'Language switch'}
+    >
       <a
         href="/en/"
         class={lang === 'en' ? 'active' : undefined}
         hreflang="en"
         lang="en"
         aria-current={lang === 'en' ? 'true' : undefined}
-        >EN</a
       >
-      <span class="lang-sep" aria-hidden="true">/</span>
+        EN
+      </a>
+      <span class="lang-sep" aria-hidden="true">
+        /
+      </span>
       <a
         href="/"
         class={lang === 'de' ? 'active' : undefined}
         hreflang="de"
         lang="de"
         aria-current={lang === 'de' ? 'true' : undefined}
-        >DE</a
       >
+        DE
+      </a>
     </div>
   </div>
 </header>
